@@ -73,6 +73,7 @@ if __name__ == "__main__":
             if (rows[0] == False):
                print (" Working with:   MASTER - %s" % rows[1]),
                if doDML:
+                  cur.execute(CREATE TABLE IF NOT EXISTS HATEST (TM TIMESTAMP))
                   cur.execute("INSERT INTO HATEST VALUES(CURRENT_TIMESTAMP) RETURNING TM")
                   if cur.rowcount == 1 :
                      conn.commit()
